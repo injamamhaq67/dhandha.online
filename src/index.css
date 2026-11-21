@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0A1229;
+    color: #F5F7FA;
+    overflow-x: hidden;
+  }
+}
+
+/* Subtle grain/noise texture overlay */
+.noise-overlay {
+  background-image: radial-gradient(rgba(245, 247, 250, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism surfaces matching brand tokens from Stitch */
+.glass-panel {
+  background-color: rgba(17, 31, 59, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(43, 210, 122, 0.18);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.55);
+}
+
+.glass-panel:hover {
+  border-color: rgba(90, 240, 165, 0.38);
+  box-shadow: 0 20px 44px -14px rgba(43, 210, 122, 0.14);
+}
+
+.glass-panel-featured {
+  background-color: rgba(17, 31, 59, 0.78);
+  background-image: linear-gradient(165deg, rgba(43, 210, 122, 0.16) 0%, rgba(17, 31, 59, 0.78) 55%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(43, 210, 122, 0.45);
+  box-shadow: 0 24px 56px -16px rgba(43, 210, 122, 0.22);
+}
+
+.reel-scrim {
+  background-color: rgba(10, 18, 41, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-scrolled {
+  background-color: rgba(10, 18, 41, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(43, 210, 122, 0.18);
+}
+
+/* Soft green radial lights */
+.hero-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(43, 210, 122, 0.20) 0%, rgba(90, 240, 165, 0.06) 42%, transparent 72%);
+  animation: slow-drift 14s ease-in-out infinite alternate;
+}
+
+.cta-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(43, 210, 122, 0.28) 0%, rgba(90, 240, 165, 0.08) 46%, transparent 74%);
+}
+
+@keyframes slow-drift {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(4%, 3%, 0) scale(1.06);
+  }
+}
+
+@keyframes fade-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.55s cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+.delay-2 {
+  animation-delay: 160ms;
+}
+.delay-3 {
+  animation-delay: 240ms;
+}
+
+/* Horizontal momentum scroll for Reels wall */
+.reels-strip {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+.reels-strip::-webkit-scrollbar {
+  display: none;
+}
+
+/* Accessible reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow,
+  .animate-fade-rise {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
