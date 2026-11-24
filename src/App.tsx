@@ -53,7 +53,6 @@ export function App() {
       <main id="top">
         {/* Hero Section */}
         <Hero
-          onAuditClick={scrollToContact}
           onViewPlansClick={scrollToPlans}
         />
 

@@ -201,13 +201,24 @@ export const GrowthAuditForm: React.FC<GrowthAuditFormProps> = ({
                 . Our growth strategist will inspect your profile and message you on
                 WhatsApp within 24 hours.
               </p>
-              <button
-                type="button"
-                onClick={handleReset}
-                className="mt-4 rounded-full border border-outline-green bg-surface-container/80 px-gutter-lg py-2.5 text-on-surface font-label text-label-sm hover:border-primary transition-colors cursor-pointer"
-              >
-                Submit another enquiry
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+                <a
+                  href={SITE_CONFIG.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-gutter-xs rounded-full bg-primary px-gutter-lg py-2.5 text-on-primary font-label text-label-sm font-bold transition-all hover:bg-primary-glow hover:-translate-y-0.5"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chat on WhatsApp Now</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="rounded-full border border-outline-green bg-surface-container/80 px-gutter-lg py-2.5 text-on-surface font-label text-label-sm hover:border-primary transition-colors cursor-pointer"
+                >
+                  Submit another enquiry
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-gutter-md" noValidate>

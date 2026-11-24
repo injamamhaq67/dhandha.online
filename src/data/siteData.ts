@@ -17,10 +17,11 @@ import {
 export const SITE_CONFIG = {
   brandName: 'Dhandha.online',
   hindiBrandMark: 'धंधा',
-  // PLACEHOLDER: Replace with your actual verified WhatsApp business number in international format without '+' or spaces
-  whatsappNumber: '91XXXXXXXXXX',
+  // Verified WhatsApp Business number in international format without '+' or spaces
+  whatsappNumber: '917869817961',
+  whatsappPrefilledMessage: 'Hi Dhandha.online, I want to grow my business online.',
   get whatsappLink() {
-    return `https://wa.me/${this.whatsappNumber}`;
+    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappPrefilledMessage)}`;
   },
   // PLACEHOLDER: Replace with your support / sales inquiry email
   email: 'hello@dhandha.online',

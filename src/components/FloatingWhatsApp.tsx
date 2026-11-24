@@ -6,9 +6,8 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <a
       /* 
-        NOTE TO FUTURE DEVELOPER:
-        Placeholder number is defined in src/data/siteData.ts as SITE_CONFIG.whatsappNumber
-        Default: https://wa.me/91XXXXXXXXXX
+        WhatsApp Business number and prefilled message are configured in src/data/siteData.ts
+        Link: https://wa.me/917869817961?text=Hi%20Dhandha.online%2C%20I%20want%20to%20grow%20my%20business%20online.
       */
       href={SITE_CONFIG.whatsappLink}
       target="_blank"

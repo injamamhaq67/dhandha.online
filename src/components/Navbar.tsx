@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
-import { NAV_ITEMS } from '../data/siteData';
+import { NAV_ITEMS, SITE_CONFIG } from '../data/siteData';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -78,14 +78,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onAuditClick }) => {
 
         {/* Right: Primary CTA + Mobile Toggle */}
         <div className="flex items-center gap-gutter-sm">
-          <button
-            type="button"
-            onClick={onAuditClick}
+          <a
+            href={SITE_CONFIG.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group hidden sm:inline-flex items-center justify-center gap-gutter-xs rounded-full bg-primary px-gutter-lg py-2.5 text-on-primary transition-all duration-state-change ease-state-change hover:-translate-y-0.5 hover:bg-primary-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-0 cursor-pointer"
           >
             <span className="font-label text-label-lg font-semibold">Free Growth Audit</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-state-change group-hover:translate-x-1" />
-          </button>
+          </a>
 
           {/* Mobile Menu Toggle Button */}
           <button
@@ -119,17 +120,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onAuditClick }) => {
               {item.label}
             </a>
           ))}
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onAuditClick();
-            }}
+          <a
+            href={SITE_CONFIG.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
             className="mt-gutter-sm inline-flex items-center justify-center gap-gutter-sm rounded-full bg-primary px-gutter-lg py-3.5 text-on-primary font-label text-label-lg font-semibold w-full cursor-pointer hover:bg-primary-glow transition-colors"
           >
             <span>Free Growth Audit</span>
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </nav>
       </div>
     </header>

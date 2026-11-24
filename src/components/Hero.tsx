@@ -1,13 +1,13 @@
 import React from 'react';
 import { ArrowRight, PlayCircle, TrendingUp } from 'lucide-react';
+import { SITE_CONFIG } from '../data/siteData';
 import { BrandLogo } from './BrandLogo';
 
 interface HeroProps {
-  onAuditClick: () => void;
   onViewPlansClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onAuditClick, onViewPlansClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onViewPlansClick }) => {
   return (
     <section id="top" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
       {/* Soft moving green radial light background */}
@@ -45,16 +45,17 @@ export const Hero: React.FC<HeroProps> = ({ onAuditClick, onViewPlansClick }) =>
 
           {/* Hero CTAs */}
           <div className="animate-fade-rise delay-3 flex flex-col sm:flex-row sm:items-center gap-gutter-md pt-gutter-xs">
-            <button
-              type="button"
-              onClick={onAuditClick}
+            <a
+              href={SITE_CONFIG.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-gutter-sm rounded-full bg-primary px-gutter-xl py-4 text-on-primary transition-all duration-state-change ease-state-change hover:-translate-y-0.5 hover:bg-primary-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer shadow-lg shadow-primary/10"
             >
               <span className="font-label text-label-lg font-bold">
                 Get a Free Growth Audit
               </span>
               <ArrowRight className="w-5 h-5 transition-transform duration-state-change group-hover:translate-x-1" />
-            </button>
+            </a>
 
             <button
               type="button"
